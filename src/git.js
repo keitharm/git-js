@@ -290,7 +290,7 @@
     * @param {Function} [then]
     */
    Git.prototype.checkout = function (what, then) {
-      return this._run(['checkout', what], function (err, data) {
+      return this._run(['checkout'].concat(what), function (err, data) {
          then && then(err, !err && this._parseCheckout(data));
       });
    };
